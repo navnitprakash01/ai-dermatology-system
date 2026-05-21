@@ -1,0 +1,140 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Stich Clinical Futurist Color System */
+  --background: #f7f9fb;
+  --surface: #f7f9fb;
+  --surface-dim: #d8dadc;
+  --surface-bright: #f7f9fb;
+  --surface-container: #eceef0;
+  --surface-container-high: #e6e8ea;
+  --surface-container-highest: #e0e3e5;
+  --on-surface: #191c1e;
+  --on-surface-variant: #46464d;
+  
+  /* Primary: Deep Space Blue */
+  --primary: #000000;
+  --primary-dark: #141a35;
+  --on-primary: #ffffff;
+  
+  /* Secondary: Electric Cyan */
+  --secondary: #00696e;
+  --secondary-light: #00f4fe;
+  --on-secondary: #ffffff;
+  
+  /* Tertiary: Soft Purple */
+  --tertiary: #6200bc;
+  --tertiary-light: #a35dff;
+  
+  /* Support Colors */
+  --error: #ba1a1a;
+  --success: #00a86b;
+  --foreground: #191c1e;
+  --border: #e0e3e5;
+  
+  /* Chart/Data Colors */
+  --chart-1: #00696e;
+  --chart-2: #6200bc;
+  --chart-3: #a35dff;
+  
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --font-sans: 'Hanken Grotesk', 'Plus Jakarta Sans', 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-border: var(--border);
+  --color-error: var(--error);
+  --color-success: var(--success);
+  --radius: var(--radius);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  
+  /* Typography Scale */
+  h1 {
+    @apply text-5xl font-bold tracking-tight;
+  }
+  
+  h2 {
+    @apply text-4xl font-bold tracking-tight;
+  }
+  
+  h3 {
+    @apply text-2xl font-bold;
+  }
+  
+  p {
+    @apply text-base leading-relaxed;
+  }
+}
+
+/* Glassmorphism utilities */
+.glass-card {
+  @apply backdrop-blur-[20px] bg-white/[0.08] border border-white/[0.2];
+}
+
+.glass-glow {
+  @apply shadow-[0_0_32px_rgba(0,244,254,0.15)];
+}
+
+.glass-glow-purple {
+  @apply shadow-[0_0_32px_rgba(163,93,255,0.15)];
+}
+
+/* Smooth animations */
+@layer utilities {
+  .animate-pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-scan {
+    animation: scan 3s ease-in-out infinite;
+  }
+  
+  @keyframes scan {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}

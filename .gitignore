@@ -1,0 +1,12 @@
+node_modules/
+.next/
+backend/venv/
+venv/
+backend/__pycache__/
+backend/uploads/
+*.pyc
+.env
+.env.local
+*.tsbuildinfo
+dataset/
+processed_dataset/
