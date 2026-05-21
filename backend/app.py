@@ -113,6 +113,11 @@ def request_entity_too_large(error):
 # Load the model once during Flask startup.
 # This ensures the model is ready before the first request arrives.
 load_trained_model()
+if __name__ == "__main__":
+    import os
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 5000)),
+        debug=False
+    )
