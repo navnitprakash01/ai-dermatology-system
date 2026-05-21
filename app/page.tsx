@@ -69,8 +69,8 @@ export default function Home() {
     setShowResults(false);
     setApiError(null);
 
-    const apiUrl = process.env.NEXT_PUBLIC_AI_API_URL ?? 'http://localhost:5000';
-    const formData = new FormData();
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+ const formData = new FormData();
     formData.append('file', selectedImage, selectedImage.name);
 
     try {
